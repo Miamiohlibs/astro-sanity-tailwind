@@ -17,5 +17,10 @@ export default defineConfig({
   adapter: vercel({
     imageService: true
   }),
-  integrations: [sanity(), react()]
+  integrations: [sanity({
+    projectId: 'h8zbt27a',
+    dataset: 'production',
+    // Set useCdn to false if you're building statically.
+    useCdn: false,
+  }), react()]
 });
