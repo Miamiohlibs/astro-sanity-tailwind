@@ -5,13 +5,17 @@ import vercel from '@astrojs/vercel/edge';
 // import vercel from '@astrojs/vercel/serverless';
 // Or a completely static build
 // import vercel from '@astrojs/vercel/static';
+import sanity from "@sanity/astro";
+import react from "@astrojs/react";
 
+// https://astro.build/config
 export default defineConfig({
   output: 'server',
   experimental: {
     assets: true
-   },
+  },
   adapter: vercel({
-    imageService: true,
+    imageService: true
   }),
+  integrations: [sanity(), react()]
 });
