@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 // Use Vercel Edge Functions (Recommended)
-import vercel from '@astrojs/vercel/edge';
+//import vercel from '@astrojs/vercel/edge';
 // Can also use Serverless Functions
 // import vercel from '@astrojs/vercel/serverless';
 // Or a completely static build
-// import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/static';
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
@@ -17,10 +17,15 @@ export default defineConfig({
   adapter: vercel({
     imageService: true
   }),
-  integrations: [sanity({
+  integrations: [
+  sanity({
     projectId: 'h8zbt27a',
     dataset: 'production',
-    // Set useCdn to false if you're building statically.
-    useCdn: false,
-  }), react()]
+    output: 'static',
+    adapter: vercelStatic(),
+    useCdn: false, // See note on using the CDN
+    apiVersion: '2023-03-20', // insert the current date to access the latest version of the API
+    studioBasePath: '/admin', // If you want to access the Studio on a route
+  }),
+ react()]
 });
