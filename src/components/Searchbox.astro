@@ -11,7 +11,7 @@
     
     <input type="hidden" name="query" id="primoQuery">
 
-<div class="search-select-box-button">
+<div class="search-select-box-wrapper">
 
   <div id="search-label" class="form-label">
     <label for="scopeSelecter" aria-hidden="false">Search</label>
@@ -20,7 +20,7 @@
   <option value="Everything">Nearly Everything</option>
   <option value="LibraryCatalog">MU Library Catalog</option>
   <option value="OhioLink">OhioLink Catalog</option>
-  <option value="CentralIndex">Articles</option>
+  <option value="CentralIndex">Articles &amp; More</option>
   <option value="CourseReserves">Course Reserves</option>
 </select>
 
@@ -28,7 +28,7 @@
   <label for="primoQueryTemp" aria-hidden="false">For</label>
 </div>
     <input type="hidden" name="pcAvailabilty" value="true">
-    <input class="eb-search__input-bquery" type="text" id="primoQueryTemp" value="" size="35">
+    <input class="eb-search__input-bquery" type="text" id="primoQueryTemp" value="" size="25">
 
 <div id="search-by-label" class="form-label visually-hidden">
   <label for="searchBy" aria-hidden="true">By</label>
@@ -48,44 +48,35 @@
 
 <div class="eb-filter-container">
   <div class="discovery-facets d-flex">
-  <div class="select-wrapper search-by-input pr-3">
+  <div class="select-wrapper search-by-input pr-2">
     <select id="pfilter" name="pfilter" class="eb-search__select">
     <option value="rtype,exact,any">All Formats</option>
       <option value="rtype,exact,journals">Journals</option>
       <option value="rtype,exact,books">Books</option>
       <option value="rtype,exact,articles">Articles</option>
-      <option value="rtype,exact,images">Images</option>
       <option value="rtype,exact,video">Video</option>
       <option value="rtype,exact,dissertations">Dissertations</option>
     </select>
   </div>
-  <label class="eb-search__label" for="catalogOnly">
+
+  <label class="eb-search__label p-3" for="catalogOnly">
     <input id="onlineOnly" name="facet" type="checkbox" value="tlevel,include,online_resources" /> <span>Available Online</span> </label>
-  <label class="eb-search__label" for="libraryCollection"><input id="libraryCollection" name="facet" type="checkbox" value="tlevel,include,available_p" />
-    <span>Held by Miami Libraries</span></label>
-  <label class="eb-search__label" for="peerReviewed"> 
+
+  <label class="eb-search__label p-3" for="peerReviewed"> 
     <input id="peerReviewed" name="facet" type="checkbox" value="tlevel,include,peer_reviewed" /> <span>Peer reviewed (scholarly)</span> </label>
- <!--<label class="eb-search__label" for="openAccess">
-    <input id="openAccess" name="facet" type="checkbox" value="tlevel,include,open_access" /> <span>Open Access</span> </label>-->
+
   </div>
 <div class="related-discovery-links d-flex">
-      <a class="px-3 py-1"
-        href="https://ohiolink-mu.primo.exlibrisgroup.com/discovery/search?vid=01OHIOLINK_MU:MU&lang=en&offset=0&mode=advanced">Advanced
+      <a class="p-3"
+        href="https://ohiolink-mu.primo.exlibrisgroup.com/discovery/search?vid=01OHIOLINK_MU:01OHIOLINK_MU_MU_Sandbox&mode=advanced">Advanced
         Search</a> 
-      <a class="px-3 py-1" href="https://libguides.lib.miamioh.edu/AlmaPrimoMigration/primo-info">Primo Help</a>
+      <a class="p-3" href="https://libguides.lib.miamioh.edu/AlmaPrimoMigration/primo-info">Primo Help</a>
 </div>
 </div>
 
 
   </form>
 </div>
-
- <!-- <div class="supplemental-primo-links text-center">
-
-  </div>
-
--->
-
 
 
 <style type="text/css">
@@ -107,7 +98,7 @@ align-items: stretch;
 font-size: 2.5em;
 }
 
-.searchbox-testing .search-select-box-button {
+.searchbox-testing .search-select-box-wrapper {
 display: flex;
 position: relative;
 z-index: 10;
@@ -178,7 +169,7 @@ margin: -3em 0.5em 0em 0;
 
 
 
-.searchbox-testing .search-select-box-button select {
+.searchbox-testing .search-select-box-wrapper select {
 padding: 0.5em;
 background-color: white;
 box-shadow: 2px 2px 10px #700;

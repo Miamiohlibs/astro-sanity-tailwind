@@ -7,6 +7,7 @@ const {
   PUBLIC_SANITY_PROJECT_ID,
   PUBLIC_SANITY_DATASET,
 } = loadEnv(import.meta.env.MODE, process.cwd(), "");
+
 import { defineConfig } from "astro/config";
 
 // Different environments use different variables
@@ -28,9 +29,7 @@ export default defineConfig({
  // },
   // Hybrid+adapter is required to support embedded Sanity Studio
   output: "hybrid",
-  adapter: vercel({
-    imageService: true
-  }),
+  adapter: vercel(),
   integrations: [
     sanity({
       projectId: 'h8zbt27a',

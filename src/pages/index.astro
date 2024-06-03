@@ -1,13 +1,22 @@
 ---
+import {sanityClient} from 'sanity:client'
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Searchbox from '../components/Searchbox.astro';
 
 export const prerender = true;
+
+const posts = await sanityClient.fetch(
+  `*[_type == "post" ]`,
+)
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Miami University Libraries.">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Miami University <span class="text-gradient">Libraries</span></h1>
+
+		<Searchbox />
+
 		<p class="instructions">
 			Check out the <code>src/pages</code> directory to get started.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -34,6 +43,18 @@ export const prerender = true;
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
+		<h2>Latest Posts</h2>
+		<ul>
+    {
+      posts.map((post: any) => (
+        <li>
+          <a href={'/posts/' + post.slug.current} class="post-link">
+            {post.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 	</main>
 </Layout>
 
@@ -43,13 +64,14 @@ export const prerender = true;
 	}
 
 	h1 {
-		margin: 2rem 0;
+		font-size: 3em;
+		margin: 2rem 0 1rem 0;
 	}
 
 	main {
 		margin: auto;
 		padding: 1em;
-		max-width: 60ch;
+		max-width: 95ch;
 	}
 
 	.text-gradient {
