@@ -20,8 +20,22 @@ const {post} = Astro.props
 <Layout title={post.title}>
   <article>
     <h1>{post.title}</h1>
-    <SanityImage node={post.coverImage} width="800" />
+    <SanityImage node={post.coverImage} width="1000" />
     <PortableText value={post.excerpt} />
     <PortableText value={post.content} />
   </article>
 </Layout>
+
+
+<style>
+
+article {
+  width: 800px;
+  margin: 1em auto;
+}
+article img {
+  width: 800px;
+  margin: 1em auto;
+}
+
+</style>
