@@ -6,12 +6,7 @@ import SanityImage from '../../components/SanityImage.astro'
 
 export async function getStaticPaths() {
   const posts = await sanityClient.fetch(
-    `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) {
-			...,
-			authors[]-> {
-				name
-			}
-		}`,
+    `*[_type == "post"]`,
   )
   return posts.map((post: any) => ({
     params: {slug: post.slug.current},
@@ -20,15 +15,13 @@ export async function getStaticPaths() {
 }
 
 const {post} = Astro.props
-//const byline = (post.authors || []).map((a: any) => a.name).join(', ')
 ---
 
 <Layout title={post.title}>
   <article>
     <h1>{post.title}</h1>
-    <p>Written by {byline}</p>
-    <SanityImage node={post.poster} width="600" />
-    <PortableText value={post.blurb} />
-    <PortableText value={post.text} />
+    <SanityImage node={post.coverImage} width="800" />
+    <PortableText value={post.excerpt} />
+    <PortableText value={post.content} />
   </article>
 </Layout>

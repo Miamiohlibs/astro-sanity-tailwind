@@ -1,6 +1,7 @@
 // Loading environment variables from .env files
 // https://docs.astro.build/en/guides/configuring-astro/#environment-variables
 import { loadEnv } from "vite";
+
 const {
   PUBLIC_SANITY_STUDIO_PROJECT_ID,
   PUBLIC_SANITY_STUDIO_DATASET,
@@ -28,7 +29,7 @@ export default defineConfig({
  //   assets: true
  // },
   // Hybrid+adapter is required to support embedded Sanity Studio
-  output: "hybrid",
+  output: 'hybrid',
   adapter: vercel(),
   integrations: [
     sanity({
