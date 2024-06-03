@@ -1,0 +1,288 @@
+<div class="searchbox-testing">
+
+    <h2 class="" id="primo-heading">Start Your Research Here...</h2>
+
+  <form action="https://ohiolink-mu.primo.exlibrisgroup.com/discovery/search"
+    enctype="application/x-www-form-urlencoded; charset=utf-8" id="primo-multi" name="primoMultiSearch" method="get" target="_self" onsubmit="searchPrimo()">
+    
+    <input type="hidden" name="vid" value="01OHIOLINK_MU:01OHIOLINK_MU_MU_Sandbox">
+    <input id="primoTab" type="hidden" name="tab" value="Everything">
+    <input id="primoScope" type="hidden" name="search_scope" value="MyInst_and_CI">
+    
+    <input type="hidden" name="query" id="primoQuery">
+
+<div class="search-select-box-button">
+
+  <div id="search-label" class="form-label">
+    <label for="scopeSelecter" aria-hidden="false">Search</label>
+  </div>
+<select class="eb-search__select" id="scopeSelecter" name="scopeSelecter" onchange="primoScopeSwitch(this)">
+  <option value="Everything">Nearly Everything</option>
+  <option value="LibraryCatalog">MU Library Catalog</option>
+  <option value="OhioLink">OhioLink Catalog</option>
+  <option value="CentralIndex">Articles</option>
+  <option value="CourseReserves">Course Reserves</option>
+</select>
+
+<div id="search-terms-label" class="form-label">
+  <label for="primoQueryTemp" aria-hidden="false">For</label>
+</div>
+    <input type="hidden" name="pcAvailabilty" value="true">
+    <input class="eb-search__input-bquery" type="text" id="primoQueryTemp" value="" size="35">
+
+<div id="search-by-label" class="form-label visually-hidden">
+  <label for="searchBy" aria-hidden="true">By</label>
+</div>
+<div class="select-wrapper search-by-input">
+  <select id="searchBy" class="eb-search__select">
+    <option value="any">Anywhere in the Record</option>
+    <option value="title">As the Title</option>
+    <option value="creator">As Author/Creator</option>
+    <option value="sub">In the Subject</option>
+  </select>
+</div>
+
+
+    <input class="search-submit" id="go" title="Search" onclick="searchPrimo()" type="button" value="Go" alt="Go">
+</div>
+
+<div class="eb-filter-container">
+  <div class="discovery-facets d-flex">
+  <div class="select-wrapper search-by-input pr-3">
+    <select id="pfilter" name="pfilter" class="eb-search__select">
+    <option value="rtype,exact,any">All Formats</option>
+      <option value="rtype,exact,journals">Journals</option>
+      <option value="rtype,exact,books">Books</option>
+      <option value="rtype,exact,articles">Articles</option>
+      <option value="rtype,exact,images">Images</option>
+      <option value="rtype,exact,video">Video</option>
+      <option value="rtype,exact,dissertations">Dissertations</option>
+    </select>
+  </div>
+  <label class="eb-search__label" for="catalogOnly">
+    <input id="onlineOnly" name="facet" type="checkbox" value="tlevel,include,online_resources" /> <span>Available Online</span> </label>
+  <label class="eb-search__label" for="libraryCollection"><input id="libraryCollection" name="facet" type="checkbox" value="tlevel,include,available_p" />
+    <span>Held by Miami Libraries</span></label>
+  <label class="eb-search__label" for="peerReviewed"> 
+    <input id="peerReviewed" name="facet" type="checkbox" value="tlevel,include,peer_reviewed" /> <span>Peer reviewed (scholarly)</span> </label>
+ <!--<label class="eb-search__label" for="openAccess">
+    <input id="openAccess" name="facet" type="checkbox" value="tlevel,include,open_access" /> <span>Open Access</span> </label>-->
+  </div>
+<div class="related-discovery-links d-flex">
+      <a class="px-3 py-1"
+        href="https://ohiolink-mu.primo.exlibrisgroup.com/discovery/search?vid=01OHIOLINK_MU:MU&lang=en&offset=0&mode=advanced">Advanced
+        Search</a> 
+      <a class="px-3 py-1" href="https://libguides.lib.miamioh.edu/AlmaPrimoMigration/primo-info">Primo Help</a>
+</div>
+</div>
+
+
+  </form>
+</div>
+
+ <!-- <div class="supplemental-primo-links text-center">
+
+  </div>
+
+-->
+
+
+
+<style type="text/css">
+.searchbox-testing .flex-wrapper {
+display: flex;
+gap: 2em;
+}
+
+.searchbox-testing {
+flex: 3;
+margin: 0em 0 1em 0;
+padding: 1em 0em;
+border-radius: 10px;
+background-color: #fff;
+align-items: stretch;
+}
+
+#primo-heading {
+font-size: 2.5em;
+}
+
+.searchbox-testing .search-select-box-button {
+display: flex;
+position: relative;
+z-index: 10;
+gap: 0.85em;
+width: 100%;
+margin: 0 0 1.25em 0;
+padding: 1.5em 1.5em 1.5em 1.25em;
+align-items: stretch;
+background-color: #ac102a;
+border-radius: 10px 10px 10px 10px;
+box-shadow: 3px 3px 5px #888;
+}
+
+select#pfilter {
+    padding: 0.25em 0.5em;
+    margin: 0.75em 2.25em 0 0;
+    background-color: white;
+} 
+
+.searchbox-testing .eb-filter-container {
+display: flex;
+  justify-content: start;
+  margin: -1.5em 1.5em 0em 1.5em;
+  background: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #e9e9e9;
+}
+
+.discovery-facets {
+  padding: 0.35em 0 0.35em 1.25em;
+  border-radius: 0px 10px 10px 10px;
+  background-color: #e9e9e9;
+}
+
+.related-discovery-links {
+  background-color: #f6f6f6;
+  padding: 0.35em 1em;
+  border-radius: 0 0 10px 0;
+}
+
+
+.searchbox-testing .eb-search__label {
+width: auto;
+padding: 0.25em 2em 0.25em 0;
+}
+
+.searchbox-testing form {
+flex: 1;
+}
+
+.searchbox-testing .related-links {
+flex: 1;
+border: 1px solid #ccc;
+border-radius: 10px;
+background-color: #fff;
+padding: 0.5em 1em;
+}
+
+.searchbox-testing .related-links h3 {
+font-size: 1.25em;
+margin: 0.75em 0.75em 0.5em 1em;
+}
+
+.searchbox-testing .onesearch-help {
+float: right;
+margin: -3em 0.5em 0em 0;
+}
+
+
+
+.searchbox-testing .search-select-box-button select {
+padding: 0.5em;
+background-color: white;
+box-shadow: 2px 2px 10px #700;
+height: 100%!important;
+}
+
+
+.searchbox-testing .eb-search__input-bquery {
+flex: 4;
+padding: 0.125em 0.5em;
+background-color: white;
+border: 1px solid #AE102B;
+box-shadow: 2px 2px 10px #700;
+}
+
+.searchbox-testing input.search-submit {
+flex: 1;
+}
+
+.searchbox-testing .advsearch {
+margin: -1.25em 0 1em 0px;
+font-size: 0.85em;
+}
+
+#front-page-search {
+margin: 2em 0 2em 0;
+}
+
+#primo-multi .form-label label {
+    color: white;
+    padding: 0.35em 0em 0 0em;
+    font-weight: bold;
+    font-size: 1.125em;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+
+  function searchPrimo() {
+    document.getElementById("primoQuery").value = document.getElementById("searchBy").value + ",contains," + document.getElementById("primoQueryTemp").value;
+    document.forms["primoMultiSearch"].submit();
+  }
+
+  function primoScopeSwitch(scope) {
+    switch (scope.value) {
+      case "Everything":
+        document.getElementById("primoTab").value = "Everything";
+        document.getElementById("primoScope").value = "MyInst_and_CI";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Articles, books, videos, and more...";
+        document.getElementById("primo-heading").innerText = "Start Your Research Here...";
+        break;
+
+      case "LibraryCatalog":
+        document.getElementById("primoTab").value = "LibraryCatalog";
+        document.getElementById("primoScope").value = "MyInstitution";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Books, videos, and more from Miami Collections";
+        document.getElementById("primo-heading").innerText = "Search Books & More from Miami Collections...";
+        break;
+
+      case "CentralIndex":
+        document.getElementById("primoTab").value = "CentralIndex";
+        document.getElementById("primoScope").value = "CentralIndex";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Journal articles and more";
+        document.getElementById("primo-heading").innerText = "Search Articles & More...";
+        break;
+
+      case "CourseReserves":
+        document.getElementById("primoTab").value = "CourseReserves";
+        document.getElementById("primoScope").value = "CourseReserves";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Textbooks and items on course reserve";
+        document.getElementById("primo-heading").innerText = "Search Course Reserves...";
+        break;
+
+      case "OhioLink":
+        document.getElementById("primoTab").value = "New_Network_Catalog";
+        document.getElementById("primoScope").value = "New_Discovery_Network";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Items statewide via OhioLink";
+        document.getElementById("primo-heading").innerText = "Search OhioLink...";
+        break;
+
+      case "WorldCat":
+        document.getElementById("primoTab").value = "WorldCat";
+        document.getElementById("primoScope").value = "WorldCat";
+        document.getElementById("pfilter").value = "rtype,exact,any";
+        document.getElementById("primoQueryTemp").placeholder = "Items worldwide via WorldCat";
+        document.getElementById("primo-heading").innerText = "Search WorldCat...";
+        break;
+    }
+  }
+
+  //Windows on load function to load the intitial change
+  window.onload = function () {
+    var scope = document.getElementById("scopeSelecter");
+    primoScopeSwitch(scope);
+  };
+
+
+
+</script>
