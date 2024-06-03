@@ -1,31 +1,44 @@
-import { defineConfig } from 'astro/config';
-// Use Vercel Edge Functions (Recommended)
-//import vercel from '@astrojs/vercel/edge';
-// Can also use Serverless Functions
-// import vercel from '@astrojs/vercel/serverless';
-// Or a completely static build
-import vercel from '@astrojs/vercel/static';
+// Loading environment variables from .env files
+// https://docs.astro.build/en/guides/configuring-astro/#environment-variables
+import { loadEnv } from "vite";
+const {
+  PUBLIC_SANITY_STUDIO_PROJECT_ID,
+  PUBLIC_SANITY_STUDIO_DATASET,
+  PUBLIC_SANITY_PROJECT_ID,
+  PUBLIC_SANITY_DATASET,
+} = loadEnv(import.meta.env.MODE, process.cwd(), "");
+import { defineConfig } from "astro/config";
+
+// Different environments use different variables
+const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID || PUBLIC_SANITY_PROJECT_ID;
+const dataset = PUBLIC_SANITY_STUDIO_DATASET || PUBLIC_SANITY_DATASET;
+
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
+// Change this depending on your hosting provider (Vercel, Netlify etc)
+// https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  experimental: {
-    assets: true
-  },
+   // output: 'server',
+ // experimental: {
+ //   assets: true
+ // },
+  // Hybrid+adapter is required to support embedded Sanity Studio
+  output: "hybrid",
   adapter: vercel({
     imageService: true
   }),
   integrations: [
-  sanity({
-    projectId: 'h8zbt27a',
-    dataset: 'production',
-    output: 'static',
-    adapter: vercelStatic(),
-    useCdn: false, // See note on using the CDN
-    apiVersion: '2023-03-20', // insert the current date to access the latest version of the API
-    studioBasePath: '/admin', // If you want to access the Studio on a route
-  }),
- react()]
+    sanity({
+      projectId: 'h8zbt27a',
+      dataset: 'production',
+      studioBasePath: "/admin",
+      useCdn: false,
+      // `false` if you want to ensure fresh data
+      apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
+  }), react() // Required for Sanity Studio
+  ]
 });
