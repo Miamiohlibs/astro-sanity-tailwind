@@ -17,10 +17,25 @@ const posts = await sanityClient.fetch(
 
 		<Searchbox />
 
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+		<div class="latest-posts">
+<h2>Latest Posts</h2>
+		<ul>
+    {
+      posts.map((post: any) => (
+        <li>
+			
+          <a href={'/posts/' + post.slug.current} class="post-link">
+            {post.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+<p class="instructions">
+			Check out the <code>src/pages</code> directory to get started.
 		</p>
+
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
@@ -43,18 +58,7 @@ const posts = await sanityClient.fetch(
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
-		<h2>Latest Posts</h2>
-		<ul>
-    {
-      posts.map((post: any) => (
-        <li>
-          <a href={'/posts/' + post.slug.current} class="post-link">
-            {post.title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+		
 	</main>
 </Layout>
 
@@ -116,5 +120,12 @@ const posts = await sanityClient.fetch(
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+
+	.latest-posts {
+		border: 0.15em solid var(--color-border);
+		border-radius: 0.4rem;
+		padding: 1em 2em;
+		background-color: white;
 	}
 </style>
