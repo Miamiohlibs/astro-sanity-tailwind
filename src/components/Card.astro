@@ -1,5 +1,4 @@
 ---
-import {sanityClient} from 'sanity:client'
 export interface Props {
 	title: string;
 	body: string;
@@ -8,9 +7,6 @@ export interface Props {
 
 const { href, title, body } = Astro.props as Props;
 
-const posts = await sanityClient.fetch(
-  `*[_type == "post" ]`,
-)
 ---
 
 <li class="link-card">
