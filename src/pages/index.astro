@@ -1,20 +1,17 @@
 ---
-import {sanityClient} from 'sanity:client'
+import { sanityClient } from "sanity:client";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Searchbox from '../components/Searchbox.astro';
-
 export const prerender = true;
 
-const posts = await sanityClient.fetch(
-  `*[_type == "post" ]`,
-)
+const posts = await sanityClient.fetch(`*[_type == "post"]`);
+
 ---
 
 <Layout title="Welcome to Miami University Libraries.">
 	<main>
-		<h1>Miami University <span class="text-gradient">Libraries</span></h1>
-
+		
 		<Searchbox />
 
 		<div class="latest-posts">

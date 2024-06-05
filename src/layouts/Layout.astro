@@ -1,12 +1,14 @@
 ---
+
 import 'bootstrap/dist/css/bootstrap.css'
 export const prerender = true;
 
 export interface Props {
 	title: string;
 }
+import Navigation from '../components/Navigation.astro';
 
-const { title } = Astro.props as Props;
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +19,20 @@ const { title } = Astro.props as Props;
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script>
+
+		
+		<script is:inline type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js"></script>    
+		<script is:inline src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script is:inline>
+        jQuery.ui ||
+        document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');
+    </script>
+
+<script is:inline src="https://www.lib.miamioh.edu/assets/js/modernizr.custom.js" type="text/javascript"></script>
+<script is:inline src="https://www.lib.miamioh.edu/assets/js/aria-expanded.js" type="text/javascript"></script> 
+
+
+		<script is:inline>
 			import { webVitals } from "../lib/vitals";
 
 			let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
@@ -32,9 +47,12 @@ const { title } = Astro.props as Props;
 		</script>
 	</head>
 	<body>
+		<Navigation />
 		<slot />
 	</body>
 </html>
+
+
 <style>
 	:root {
 		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
