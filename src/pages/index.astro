@@ -3,16 +3,22 @@ import { sanityClient } from "sanity:client";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Searchbox from '../components/Searchbox.astro';
+import Carousel from '../components/Carousel.astro';
+
 export const prerender = true;
 
-const posts = await sanityClient.fetch(`*[_type == "post"]`);
+const posts = await sanityClient.fetch(
+  `*[_type == "post" && defined(date)] | order(date desc)`,
+)
 
 ---
 
-<Layout title="Welcome to Miami University Libraries.">
+<Layout title="Welcome to Miami University Libraries">
 	<main>
 		
 		<Searchbox />
+
+		<Carousel />
 
 		<div class="latest-posts">
 <h2>Latest Posts</h2>

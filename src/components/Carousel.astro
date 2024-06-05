@@ -1,0 +1,177 @@
+---
+import {sanityClient} from 'sanity:client'
+import imageUrlBuilder from '@sanity/image-url'
+const builder = imageUrlBuilder(sanityClient)
+
+function urlFor(source) {
+  return builder.image(source)
+}
+
+const carousels = await sanityClient.fetch(
+  `*[_type == "carousel" && defined(date)] | order(date desc)`,
+)
+---
+
+<div id="front-carousel" class="carousel slide carousel-fade row no-gutters" aria-roledescription="carousel"
+  aria-label="News and events from Miami University Libraries" data-bs-ride="carousel" data-bs-interval="false"
+  data-bs-pause="hover">
+
+
+  <!--carousel controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#front-carousel"
+    aria-controls="front-carousel-items" role="button" data-bs-slide="prev" aria-label="Previous Slide">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#front-carousel"
+    aria-controls="front-carousel-items" role="button" data-bs-slide="next" aria-label="Next Slide">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+
+  <div class="col-9">
+    <!--carousel slides -->
+    <div class="carousel-inner bg-lesswhite  d-flex align-items-center" id="front-carousel-items" aria-live="polite">
+      
+    {
+      carousels.map((carousel: any) => (    
+
+      <div class="carousel-item d-flex col-12 align-items-center" aria-roledescription="slide" role="group"
+        aria-label="">
+        <div class="col-12 col-md-9 flex-shrink-0 d-flex justify-content-center">
+        <a href={ carousel.targetURL } >
+            <img src={urlFor(carousel.slideImage).width(500).height(300).url()} alt={carousel.slideImageAlt} class="carousel-image"/>
+        </a>
+      </div>
+        <!--slide caption -->
+        <div class="carousel-caption d-none d-md-block col-3 flex-grow-1 px-xxl-5 px-xl-4 px-2 overflow-auto">
+          <a href="{{ slide.target-url }}">
+            <h2 class="text-danger">{ carousel.title }</h2>
+            <p class="text-dark">{ carousel.caption }</p>
+          </a>
+        </div>
+      </div>
+     
+ ))
+    }
+
+
+
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  $(document).ready(function () {
+    var numberofSlides = $('.carousel-item').length;
+    var currentSlide = Math.floor((Math.random() * numberofSlides));
+
+    $('.carousel-indicators button').each(function () {
+      var slideValue = $(this).attr('data-bs-slide-to');
+      if (currentSlide == slideValue) {
+        $(this).addClass('active');
+        $(".carousel-item").eq(slideValue).addClass('active');
+      } else {
+        $(this).removeClass('active');
+        $(".carousel-item").eq(slideValue).removeClass('active');
+      }
+    });
+
+    function updateAriaHidden() {
+      setTimeout(function () {
+        $(".carousel-item").attr('aria-hidden', 'true').addClass("hidden");
+        $(".carousel-item a").attr("tabindex", "-1");
+        $(".carousel-item.active").attr('aria-hidden', 'false').removeClass("hidden");
+        $(".carousel-item.active .carousel-caption a").removeAttr('tabindex');
+      },
+        1000); // this delay makes sure the page updates before we recalculate the aria-hidden values
+    }
+
+    // set bindings: update aria-hidden after each thumbnail click or forward/back click
+    $('.carousel-indicators button').click(function () {
+      updateAriaHidden();
+    });
+
+    $(".carousel-control-next").click(function () {
+      updateAriaHidden();
+    });
+
+    $(".carousel-control-prev").click(function () {
+      updateAriaHidden();
+    });
+
+    //update onload
+    updateAriaHidden();
+  });
+</script>
+
+
+<style>
+
+  .carousel-indicators{
+    max-width: 399px;
+    justify-content: space-evenly !important;
+  }
+  .carousel-indicators img {
+    // max-width: 100px;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    border: 1px solid red;
+  }
+
+  .carousel-indicators button {
+    max-width: 35%;
+    height: auto;
+    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    &:hover{
+      outline: 1.5px solid white;
+      outline-offset: -4px;
+      box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  .carousel-indicators button:focus {
+    outline-offset: 6px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 1000;
+  }
+
+  .carousel-control-prev {
+    left: 25.5%;
+  }
+  .carousel-control-next {
+    right: 18.8%;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon{
+      width: 1.5rem !important;
+      height: 1.5rem !important;
+      background-color: $MU-red-vary !important;
+  }
+
+ .carousel-slide-img{
+  max-height: 675px;
+ }
+
+ .carousel-caption{
+   left: 75%;
+ }
+
+ .carousel-caption h2{
+   @include font-size(1.5rem);
+ }
+
+ @media only screen and (max-width: 768px){
+  .carousel-indicators{
+  flex-direction: column;
+}
+  .carousel-control-next {
+    right: 0%;
+  }
+}
+
+
+</style>

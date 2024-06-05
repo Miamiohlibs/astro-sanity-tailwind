@@ -59,6 +59,9 @@ importers:
       astro-bootstrap:
         specifier: ^0.6.2
         version: 0.6.2(astro@4.9.2(@types/node@20.12.13)(typescript@5.4.5))(bootstrap@5.3.3(@popperjs/core@2.11.8))
+      astro-carousel:
+        specifier: ^2.0.8
+        version: 2.0.8(astro@4.9.2(@types/node@20.12.13)(typescript@5.4.5))
       astro-portabletext:
         specifier: ^0.10.0
         version: 0.10.0
@@ -2027,6 +2030,11 @@ packages:
     peerDependencies:
       astro: 2.x
       bootstrap: 5.x
+
+  astro-carousel@2.0.8:
+    resolution: {integrity: sha512-QV812jOT3LbIk8qlcpeN6T+UeVmqYGXnSreYJRU50Y/hESr7xUugJ4VqwtDRVahhASpprKkv7NYvNi4NAo/0Mg==}
+    peerDependencies:
+      astro: ^4.5.0
 
   astro-portabletext@0.10.0:
     resolution: {integrity: sha512-07Un6W3R14bRfAf4TlSzAlBkWBXzyK8NPT3Xelm3+f6sVkr61Jlx5k2dXRB6ZZycqBbbLXIbzey2WOcddTl2AA==}
@@ -7185,6 +7193,10 @@ snapshots:
       marked: 4.3.0
       nanoid: 4.0.2
       title-case: 3.0.3
+
+  astro-carousel@2.0.8(astro@4.9.2(@types/node@20.12.13)(typescript@5.4.5)):
+    dependencies:
+      astro: 4.9.2(@types/node@20.12.13)(typescript@5.4.5)
 
   astro-portabletext@0.10.0:
     dependencies:

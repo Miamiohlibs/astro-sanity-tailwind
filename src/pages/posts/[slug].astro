@@ -19,8 +19,8 @@ const {post} = Astro.props
 
 <Layout title={post.title}>
   <article>
-    <h1>{post.title}</h1>
     <SanityImage node={post.coverImage} width="1000" />
+    <h1>{post.title}</h1>
     <PortableText value={post.excerpt} />
     <PortableText value={post.content} />
   </article>
