@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Searchbox from '../components/Searchbox.astro';
 import Carousel from '../components/Carousel.astro';
+import LibraryHours from '../components/LibraryHours.astro';
 
 export const prerender = true;
 
@@ -17,6 +18,8 @@ const posts = await sanityClient.fetch(
 	<main>
 		
 		<Searchbox />
+
+		<LibraryHours />
 
 		<Carousel />
 
