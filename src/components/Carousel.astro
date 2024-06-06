@@ -7,10 +7,13 @@ function urlFor(source) {
   return builder.image(source)
 }
 
+export const prerender = true;
+
 const carousels = await sanityClient.fetch(
   `*[_type == "carousel" && defined(date)] | order(date desc)`,
 )
 ---
+
 
 <div id="front-carousel" class="carousel slide carousel-fade row no-gutters" aria-roledescription="carousel"
   aria-label="News and events from Miami University Libraries" data-bs-ride="carousel" data-bs-interval="false"
