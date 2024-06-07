@@ -1,57 +1,14 @@
-<script is:inline>
-        setTimeout(function () { $('.localist_minicalendar_nav').attr('id', 'skip-calendar'); }, 1000);
-      </script>
-
-
  <h1 class="h1Homepage">Calendar</h1>
-        <a class="visually-hidden-focusable" href="#skip-calendar">Skip calendar table</a>
-        <div id="localist-widget-49156984" class="localist-widget table-responsive-sm"></div>
-        <script defer type="text/javascript"
-          src="https://events.miamioh.edu/widget/combo?schools=miamioh&groups=university_libraries&days=31&num=2&hidedesc=1&show_types=0&show_view_all_cta=0&container=localist-widget-49156984&template=modern">
-          </script>
-        <div class="d-flex justify-content-center mb-2"><a class="btn btn-outline-danger more-info"
+
+
+
+<div id="localist-widget-49156984" class="localist-widget"></div><script defer type="text/javascript"
+src="https://events.miamioh.edu/widget/combo?schools=miamioh&groups=university_libraries&days=31&num=5&hidedesc=1&show_types=0&show_view_all_cta=0&container=localist-widget-49156984&template=modern"></script>
+
+<div class="d-flex justify-content-center mb-2"><a class="btn btn-outline-danger more-info"
             href="/about/news-events/events-exhibits/">View All <span class="visually-hidden">library events</span></a>
         </div>
 
-<script is:inline>
-
- $('p.alert-danger').css('color', 'dodgerblue');
-      $('.localist_minicalendar_page_heading h1').click(function () {
-        $(this).each(function () {
-          cal_id = $(this).attr('id');
-          cal_html = $(this).html();
-          $(this).replaceWith('<h2 class="localist_headermod">Test</h2>');
-          $(".localist_headermod").attr('id', cal_id).html(cal_html);
-        });
-      });
-      $('.localist_minicalendar_page_heading h1').click();
-
-      $('#unfoldedCard').css("border", "1px solid rgba(0, 0, 0, 0.125)");
-
-      $(".hideOnHomepage").css("display", "none");
-
-      $('#localist-widget-49156984 table')[0].setAttribute("role", "presentation");
-
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, '0');
-      var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var yyyy = today.getFullYear();
-      today = mm + '/' + dd + '/' + yyyy;
-      $('.todays-date').append(today);
-
-      if ((parseInt(dd) > 8) && (parseInt(mm) == 12) || (parseInt(dd) < 26) && (parseInt(mm) == 1)) {
-        $('li.nocontent > div.lw_event_item_title')[0].innerHTML = 'Happy Holidays! We\'ll see you in the next semester!';
-        $('#localist-widget-49156984 ~ div').addClass('visually-hidden');
-
-        $('table.localist_minicalendar_minicalendar td').click(function () {
-          setTimeout(function () {
-            $('li.nocontent > div.lw_event_item_title')[0].innerHTML = 'Happy Holidays! We\'ll see you in the next semester!';
-          }, 500)
-        });
-      }
-
-
-    </script>
 
 
 <style is:global>

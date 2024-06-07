@@ -3,7 +3,7 @@ import { sanityClient } from "sanity:client";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Searchbox from '../components/Searchbox.astro';
-import QuickLinks from '../components/QuickLinks.astro';
+import QuickLinks from '../components/QuickLinks.astro'; 
 import Carousel from '../components/Carousel.astro';
 import LibraryHours from '../components/LibraryHours.astro';
 import Localist from '../components/Localist.astro';
@@ -52,6 +52,8 @@ const posts = await sanityClient.fetch(
 
 <Carousel />
 
+          
+
         </div>
 </div>
   <!-- Mid part of homepage, contains three columns -->
@@ -62,7 +64,7 @@ const posts = await sanityClient.fetch(
       <!-- News Box -->
       <div class="col-lg-12 col-md-12 col-sm-12 bg-lesswhite">
         
-        <h1 class="h1Homepage">News Spotlight</h1>
+       <h1 class="h1Homepage">News Spotlight</h1>
            
     <ul role="list" class="link-card-grid">
         {
@@ -75,6 +77,7 @@ const posts = await sanityClient.fetch(
       </div>
 
     </div>
+  </div>
 
 	</main>
 </Layout>
