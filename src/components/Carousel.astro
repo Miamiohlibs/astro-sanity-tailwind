@@ -1,19 +1,16 @@
 ---
 import {sanityClient} from 'sanity:client'
 import imageUrlBuilder from '@sanity/image-url'
-const builder = imageUrlBuilder(sanityClient)
 
-function urlFor(source) {
-  return builder.image(source)
-}
+function urlFor(source) { return builder.image(source) }
 
 export const prerender = true;
 
+const builder = imageUrlBuilder(sanityClient)
 const carousels = await sanityClient.fetch(
   `*[_type == "carousel" && defined(date)] | order(date desc)`,
 )
 ---
-
 
 <div id="front-carousel" class="carousel slide carousel-fade row no-gutters" aria-roledescription="carousel"
   aria-label="News and events from Miami University Libraries" data-bs-ride="carousel" data-bs-interval="false"
