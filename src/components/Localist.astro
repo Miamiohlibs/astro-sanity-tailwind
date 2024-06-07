@@ -52,3 +52,160 @@
 
 
     </script>
+
+
+<style is:global>
+
+
+/*---Locallist Widget---*/
+#lclst_widget_footer,
+.localist_minicalendar .localist_minicalendar_page_heading h1:after,
+.localist_minicalendar_minicalendar caption {
+  display: none;
+}
+
+.localist_minicalendar_nav {
+  margin-top: 0.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.localist_minicalendar_pager {
+  max-width: 500px;
+  margin: auto auto 0.5rem;
+}
+
+div.lw_event_content {
+  padding-bottom: 0 !important;
+}
+
+div.lw_event_item_title {
+  line-height: normal !important;
+}
+
+a.lw_event_item_image img:hover,
+a.lw_event_item_image:focus {
+  border: 5px solid Highlight!important;
+  border: 5px -webkit-focus-ring-color!important;
+  /*
+  compare to the original :focus style; I couldn't get these to work here
+  outline: auto 2px Highlight!important;
+  outline: auto 5px -webkit-focus-ring-color!important;
+  */
+}
+
+.localist_minicalendar_minicalendar td {
+  background-color: #fff !important;
+  padding: 0!important;
+}
+
+.localist_minicalendar_minicalendar td a:hover {
+  background-color: #ccc !important;
+}
+
+.localist_minicalendar_minicalendar td:hover {
+  background-color: #ccc !important;
+}
+@media only screen and (min-width: 900px) and (max-width: 1100px) {
+  .localist_minicalendar_minicalendar td,
+  .localist_minicalendar_minicalendar th {
+    padding: 0.625rem 9px !important;
+  }
+}
+@media only screen and (min-width: 1101px) and (max-width: 1230px) {
+  .localist_minicalendar_minicalendar td,
+  .localist_minicalendar_minicalendar th {
+    padding: 0.625rem 0.625rem !important;
+  }
+}
+
+td.localist_minicalendar_today {
+  background-color: rgba(250,189,189,0.5) !important;
+  color: white;
+}
+
+td.localist_minicalendar_today:hover {
+  border-color: rgba(250,189,189,0.5) !important;
+  border-width: 3px !important;
+}
+
+.modernList .localist_widget_container div.action_button a:hover,
+.verticalModern .localist_widget_container div.action_button a:hover {
+  background-color: #fff !important;
+}
+// we use jQuery to convert h1 to h2 in the minicalendar.
+// here, we modify some styles to follow along
+
+.localist_minicalendar .localist_minicalendar_page_heading h1,
+.localist_minicalendar .localist_minicalendar_page_heading h2 {
+  @include font-size(1.5rem !important);
+}
+
+.localist_minicalendar .localist_minicalendar_page_heading h2 {
+  font-weight: bold;
+  @include font-size(1.125rem);
+  color: #0986BA;
+}
+
+.localist_minicalendar_minicalendar td a {
+  color: #333!important;
+  height: 1.25rem!important;
+  line-height: 1.25rem!important;
+}
+
+.localist_widget_container .action_button a {
+  color: rgba(195,20,45,0.9)!important;
+  border: 1px solid $brand-color!important;
+  background: white!important;
+}
+
+.modernList .localist_widget_container div.action_button a:focus,
+.modernList .localist_widget_container div.action_button a:hover,
+.verticalModern .localist_widget_container div.action_button a:focus,
+.verticalModern .localist_widget_container div.action_button a:hover {
+  &:hover {
+    color: white!important;
+    background: $brand-color!important;
+  }
+}
+
+.localist_minicalendar .localist_minicalendar_pager a {
+  background-color: $brand-color!important;
+}
+
+.localist_minicalendar_minicalendar th {
+  background-color: rgba(183, 36, 36,.05)!important;
+}
+
+.localist-widget-hl .event-img {
+  min-height: 70% !important;
+}
+
+.cardWidget .event-list .event .event-card header {
+  height: 17em !important;
+}
+
+.cardWidget .event-overview .event-title {
+  @include font-size(0.9375rem !important);
+}
+
+.localist_widget_container {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 1200px) {
+  .cardWidget .event-list .event {
+    -ms-flex-preferred-size: 30%!important;
+    flex-basis: 30%!important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .wrapHomeTitle .post-list li {
+    margin-bottom: 5px;
+  }
+}
+
+
+  </style>

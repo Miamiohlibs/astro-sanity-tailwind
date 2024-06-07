@@ -13,52 +13,38 @@ const carousels = await sanityClient.fetch(
 ---
 
 <div id="front-carousel" class="carousel slide carousel-fade row no-gutters" aria-roledescription="carousel"
-  aria-label="News and events from Miami University Libraries" data-bs-ride="carousel" data-bs-interval="false"
+  aria-label="News and events from Miami University Libraries" data-bs-ride="carousel" data-bs-interval="5000"
   data-bs-pause="hover">
 
+  <div class="carousel-inner">
 
-  <!--carousel controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#front-carousel"
-    aria-controls="front-carousel-items" role="button" data-bs-slide="prev" aria-label="Previous Slide">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#front-carousel"
-    aria-controls="front-carousel-items" role="button" data-bs-slide="next" aria-label="Next Slide">
-    <span class="carousel-control-next-icon"></span>
-  </button>
+{
+carousels.map((carousel: any) => (
 
-
-  <div class="col-9">
-    <!--carousel slides -->
-    <div class="carousel-inner bg-lesswhite  d-flex align-items-center" id="front-carousel-items" aria-live="polite">
-      
-    {
-      carousels.map((carousel: any) => (    
-
-      <div class="carousel-item d-flex col-12 align-items-center" aria-roledescription="slide" role="group"
-        aria-label="">
-        <div class="col-12 col-md-9 flex-shrink-0 d-flex justify-content-center">
-        <a href={ carousel.targetURL } >
-            <img src={urlFor(carousel.slideImage).width(500).height(300).url()} alt={carousel.slideImageAlt} class="carousel-image"/>
-        </a>
-      </div>
-        <!--slide caption -->
-        <div class="carousel-caption d-none d-md-block col-3 flex-grow-1 px-xxl-5 px-xl-4 px-2 overflow-auto">
-          <a href="{{ slide.target-url }}">
-            <h2 class="text-danger">{ carousel.title }</h2>
-            <p class="text-dark">{ carousel.caption }</p>
-          </a>
-        </div>
-      </div>
-     
- ))
-    }
-
-
-
+    <div class="carousel-item active">
+      <a href={ carousel.targetURL }>
+        <img 
+          src={urlFor(carousel.slideImage).width(800).height(500).url()} 
+          class="d-block w-100" 
+          alt={carousel.slideImageAlt}>
+      </a>
     </div>
+
+))
+}
+
   </div>
+  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+
 
 <script is:inline>
   $(document).ready(function () {
