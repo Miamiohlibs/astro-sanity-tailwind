@@ -4,9 +4,11 @@ import imageUrlBuilder from '@sanity/image-url'
 
 function urlFor(source) { return builder.image(source) }
 
+const builder = imageUrlBuilder(sanityClient)
+
 export const prerender = true;
 
-const builder = imageUrlBuilder(sanityClient)
+
 const carousels = await sanityClient.fetch(
   `*[_type == "carousel" && defined(date)] | order(date desc)`,
 )
