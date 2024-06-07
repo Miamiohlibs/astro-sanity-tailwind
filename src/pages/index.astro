@@ -3,6 +3,7 @@ import { sanityClient } from "sanity:client";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Searchbox from '../components/Searchbox.astro';
+import QuickLinks from '../components/QuickLinks.astro';
 import Carousel from '../components/Carousel.astro';
 import LibraryHours from '../components/LibraryHours.astro';
 import Localist from '../components/Localist.astro';
@@ -16,22 +17,25 @@ const posts = await sanityClient.fetch(
 ---
 <Layout title="Welcome to Miami University Libraries">
 
-	<main>
-<div class="home container-fluid">
+<main class="home container-fluid px-4">
   
 
-  <div class="d-flex flex-column-reverse flex-lg-row px-0">
+  <div class="row d-flex px-0">
     <!-- Hours Box -->
-    <div class="col-12 col-lg-3 bg-lesswhite align-items-center px-5 pt-4">
+    <div class="col-12 col-lg-4 align-items-center px-5 pt-4">
     
         <LibraryHours />
     
       </div>
-    </div>
+    
 
-    <div class="col-12 col-lg-9 d-flex justify-content-center ps-lg-5 align-items-center">
-      
+    <div class="col-12 col-lg-8 ps-3 pe-5 align-items-center">
+
         <Searchbox />
+
+        <QuickLinks />
+
+
         
     </div>
   </div>
@@ -39,9 +43,6 @@ const posts = await sanityClient.fetch(
 <Carousel />
 
   <!-- Mid part of homepage, contains three columns -->
-
-  <div class="col-12 module-divid stripe-divid">
-  </div>
 
   <div class="container-fluid">
     <div class="row">
@@ -71,78 +72,11 @@ const posts = await sanityClient.fetch(
       </div>
 
     </div>
-  </div>
+
 	</main>
 </Layout>
 
 
-  <script is:inline>
-    $(document).ready(function () {
-      console.log('Attempting to update tweet titles');
-      setTimeout(function () {
-        /*
-          Re-write the tweet title attributes to something unique and sequential
-          Was "Twitter Tweet", now more like: "Tweet 1 of 4"
-          This is done with a timeout because something in the Twitter API likes to re-write the title, and we need to make our change after it does.
-        */
-        let numTweets = $('.jekyll-twitter-plugin iframe').length;
-        let i = 1;
-        $('.jekyll-twitter-plugin iframe').each(function () {
-          let newTitle = 'Tweet ' + i + ' of ' + numTweets;
-          console.log('Attempting to apply:', newTitle)
-          $(this).attr('title', newTitle);
-          i++;
-        });
-        // Add role=presentation to custom google search tables after 1s.
-        $('table.gsc-search-box')[0].setAttribute('role', 'presentation');
-        $('table#gs_id50')[0].setAttribute('role', 'presentation');
-        $('table#gs_id50')[0].setAttribute('placeholder', 'search');
-        $('table#gs_id50')[0].setAttribute('aria-label', 'search');
-      }, 2000);
-
-      setTimeout(function () {
-      if ($('#s-lg-widget-1584468485612')[0].innerText === "") {
-        console.log('Ready to close the Emergency Message box');
-        $('#s-lg-widget-1584468485612 ~ button').click(); // close the front page alert message box when it's not in used.
-      } }, 2000);
-
-      $('p.alert-danger').css('color', 'dodgerblue');
-      $('.localist_minicalendar_page_heading h1').click(function () {
-        $(this).each(function () {
-          cal_id = $(this).attr('id');
-          cal_html = $(this).html();
-          $(this).replaceWith('<h2 class="localist_headermod">Test</h2>');
-          $(".localist_headermod").attr('id', cal_id).html(cal_html);
-        });
-      });
-      $('.localist_minicalendar_page_heading h1').click();
-
-      $('#unfoldedCard').css("border", "1px solid rgba(0, 0, 0, 0.125)");
-
-      $(".hideOnHomepage").css("display", "none");
-
-      $('#localist-widget-49156984 table')[0].setAttribute("role", "presentation");
-
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, '0');
-      var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var yyyy = today.getFullYear();
-      today = mm + '/' + dd + '/' + yyyy;
-      $('.todays-date').append(today);
-
-      if ((parseInt(dd) > 8) && (parseInt(mm) == 12) || (parseInt(dd) < 26) && (parseInt(mm) == 1)) {
-        $('li.nocontent > div.lw_event_item_title')[0].innerHTML = 'Happy Holidays! We\'ll see you in the next semester!';
-        $('#localist-widget-49156984 ~ div').addClass('visually-hidden');
-
-        $('table.localist_minicalendar_minicalendar td').click(function () {
-          setTimeout(function () {
-            $('li.nocontent > div.lw_event_item_title')[0].innerHTML = 'Happy Holidays! We\'ll see you in the next semester!';
-          }, 500)
-        });
-      }
-
-    });
-  </script>
 
 <style>
 	:root {
