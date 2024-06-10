@@ -26,7 +26,8 @@ export default defineConfig({
   //   assets: true
   // },
   // Hybrid+adapter is required to support embedded Sanity Studio
-  site: 'https://mulibraries-sandbox.github.io',
+//  site: 'https://mulibraries-sandbox.github.io',
+ // base: '',
   output: 'static',
   integrations: [
     sanity({
