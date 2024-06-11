@@ -29,7 +29,7 @@ export default defineConfig({
   site: 'https://mulibraries-sandbox.github.io/astro-sanity',
   base: '/astro-sanity',
   build: {
-    assets: '/astro-sanity'
+    assets: 'astro-sanity'
   },
   output: 'static',
   integrations: [
