@@ -32,7 +32,7 @@ export default defineConfig({
     assets: 'astro-sanity'
   },
   redirects: {
-    "/[...slug]": "/astro-sanity/[...slug]"
+    "[...slug]": "astro-sanity/[...slug]"
   },
   output: 'static',
   integrations: [
