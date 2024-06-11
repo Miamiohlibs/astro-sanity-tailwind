@@ -63,7 +63,7 @@ carousels.map((carousel: any,index) => (
         <div class="col-12 col-md-9 flex-shrink-0 d-flex justify-content-center">
         <a href={carousel.targetURL} >
             <img 
-              src={urlFor(carousel.slideImage).width(800).height(500).url()} 
+              src={urlFor(carousel.slideImage).url()} 
               alt={ carousel.slideImageAlt }
               class="img-fluid carousel-slide-img" />
         </a>
