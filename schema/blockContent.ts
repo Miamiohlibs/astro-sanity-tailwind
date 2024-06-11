@@ -18,10 +18,10 @@ export default defineType({
     defineArrayMember({
       title: 'Block',
       type: 'block',
-      // Styles let you set what your user can mark up blocks with. These
-      // correspond with HTML tags, but you can set any title or value
-      // you want and decide how you want to deal with it where you want to
-      // use your content.
+      /* Styles let you set what your user can mark up blocks with. These
+       correspond with HTML tags, but you can set any title or value
+       you want and decide how you want to deal with it where you want to
+       use your content. */
       styles: [
         { title: 'Normal', value: 'normal' },
         { title: 'H1', value: 'h1' },
@@ -31,15 +31,15 @@ export default defineType({
         { title: 'Quote', value: 'blockquote' },
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
-      // Marks let you mark up inline text in the block editor.
+      /* Marks let you mark up inline text in the block editor. */
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting by editors.
+        /* Decorators usually describe a single property – e.g. a typographic
+         preference or highlighting by editors. */
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
+        /* Annotations can be any object structure – e.g. a link or a footnote */
         annotations: [
           {
             title: 'URL',
