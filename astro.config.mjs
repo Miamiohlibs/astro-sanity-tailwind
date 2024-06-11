@@ -28,6 +28,9 @@ export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   site: 'https://mulibraries-sandbox.github.io/astro-sanity',
   base: '/astro-sanity',
+  build: {
+    assets: '/astro-sanity/_astro'
+  },
   output: 'static',
   integrations: [
     sanity({
