@@ -72,7 +72,7 @@ const posts = await sanityClient.fetch(
     <ul role="list" class="link-card-grid">
         {
         posts.map((post: any) => (
-            <Card href={'/posts/' + post.slug.current} title={post.title} body={post.excerpt} />
+            <Card href={'/astro-sanity/posts/' + post.slug.current} title={post.title} body={post.excerpt} />
         ))
         }
     </ul>
