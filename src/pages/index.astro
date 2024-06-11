@@ -7,6 +7,7 @@ import QuickLinks from '../components/QuickLinks.astro';
 import Carousel from '../components/Carousel.astro';
 import LibraryHours from '../components/LibraryHours.astro';
 import Localist from '../components/Localist.astro';
+import CrowdIndex from '../components/CrowdIndex.astro';
 
 export const prerender = true;
 
@@ -23,7 +24,7 @@ const posts = await sanityClient.fetch(
   <div class="row d-flex px-0">
     <!-- Hours Box -->
     <div class="col-12 col-lg-4 align-items-center px-5 pt-4">
-    
+    <CrowdIndex/>
         <LibraryHours />
     
       </div>
