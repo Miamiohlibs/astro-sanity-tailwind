@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'richTextComponent',
-  title: 'Rich Text Component',
+  name: 'richTextType',
+  title: 'Rich Text Block',
   type: 'object',
   fields: [
     defineField({
