@@ -3,6 +3,8 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import {visionTool} from '@sanity/vision'
 import {linkField} from 'sanity-plugin-link-field'
+import { pages } from '@tinloof/sanity-studio';
+
 
 import { schemaTypes } from './schema';
 
@@ -13,9 +15,17 @@ export default defineConfig({
   projectId: 'h8zbt27a',
   dataset: 'production',
   plugins: [
-    structureTool(), 
-    visionTool(), 
+    structureTool(),
+    visionTool(),
     linkField(),
+    pages({
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft',
+        },
+      },
+      creatablePages: ['page'],
+    }),
   ],
   schema: {
     types: schemaTypes,
