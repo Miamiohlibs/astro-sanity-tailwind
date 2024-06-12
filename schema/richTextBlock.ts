@@ -1,12 +1,12 @@
 import { defineField, defineType } from 'sanity';
 
-export default defineType({
-  name: 'richTextType',
+export const richTextBlock =  defineType({
+  name: 'richTextBlock',
   title: 'Rich Text Block',
   type: 'object',
   fields: [
     defineField({
-      name: 'richText',
+      name: 'richTextBlock',
       title: 'Rich Text',
       type: 'array',
       of: [{ type: 'block' }],

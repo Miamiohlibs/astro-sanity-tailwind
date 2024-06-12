@@ -23,31 +23,30 @@ export const pageType = defineType({
           type: 'textWithIllustration',
         }),
         defineArrayMember({
-            name: 'Rich Text Block',
-            type: 'blockContent',
+        name: 'richTextBlock',
+        type: 'richTextBlock',
         }),
-        defineArrayMember({
-            name: 'Link Component',
-            type: 'linkComponent',
-        }),
+        // defineArrayMember({
+        //     name: 'Link Component',
+        //     type: 'linkComponent',
+        // }),
         defineArrayMember({
           name: 'gallery',
           type: 'gallery',
         }),
-        defineArrayMember({
-          name: 'form',
-          type: 'form',
-        }),
+        // defineArrayMember({
+        //   name: 'form',
+        //   type: 'form',
+        // }),
         defineArrayMember({
           name: 'video',
           type: 'video',
         }),
-        defineArrayMember({
-          name: 'callToAction',
-          type: 'reference',
-          to: [{type: 'promotion'}],
-        }),
-        // etc...
+        // defineArrayMember({
+        //   name: 'callToAction',
+        //   type: 'reference',
+        //   to: [{type: 'promotion'}],
+        // }),
       ],
     }),
   ],

@@ -11,6 +11,7 @@ import {blockContent} from './blockContent';
 import {post} from './post';
 import {carousel} from './carousel';
 import {linkComponent} from './linkType';
+import {richTextBlock} from './richTextBlock';
 
 export const schemaTypes = [
   pageType,
@@ -20,6 +21,7 @@ export const schemaTypes = [
   imageGalleryType,
   formType,
   videoType,
+  richTextBlock,
   post,
   carousel,
   blockContent,
