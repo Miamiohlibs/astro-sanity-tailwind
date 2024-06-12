@@ -13,7 +13,7 @@ import { defineField, defineType } from 'sanity'
 
  */
 
-export default defineType({
+export const carousel = defineType({
   name: 'carousel',
   title: 'Carousel',
   type: 'document',

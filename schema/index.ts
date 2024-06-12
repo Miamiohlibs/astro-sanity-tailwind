@@ -7,11 +7,10 @@ import {imageGalleryType} from './imageGalleryType'
 import {pageType} from './pageType'
 import {textWithIllustrationType} from './textWithIllustrationType'
 import {videoType} from './videoType'
-import blockContent from './blockContent';
-import post from './post';
-import carousel from './carousel';
-import linkComponent from './linkType';
-import richTextType from './richTextType';
+import {blockContent} from './blockContent';
+import {post} from './post';
+import {carousel} from './carousel';
+import {linkComponent} from './linkType';
 
 export const schemaTypes = [
   pageType,
@@ -25,5 +24,4 @@ export const schemaTypes = [
   carousel,
   blockContent,
   linkComponent,
-  richTextType,
 ]

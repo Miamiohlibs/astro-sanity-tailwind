@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 
-export default defineType({
+export const linkComponent = defineType({
   name: 'linkComponent',
   title: 'Link Component',
   type: 'object',
@@ -11,9 +11,10 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'url',
-      title: 'URL',
-      type: 'url',
-    }),
+      name: 'link',
+      title: 'Link',
+      type: 'link',
+      validation: (rule) => rule.custom((field) => requiredLinkField(field)),
+    })
   ],
 });

@@ -24,7 +24,7 @@ export const pageType = defineType({
         }),
         defineArrayMember({
             name: 'Rich Text Block',
-            type: 'richTextType',
+            type: 'blockContent',
         }),
         defineArrayMember({
             name: 'Link Component',
