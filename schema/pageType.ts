@@ -23,6 +23,14 @@ export const pageType = defineType({
           type: 'textWithIllustration',
         }),
         defineArrayMember({
+            name: 'Rich Text Block',
+            type: 'RichTextComponent',
+        }),
+        defineArrayMember({
+            name: 'link',
+            type: 'link',
+        }),
+        defineArrayMember({
           name: 'gallery',
           type: 'gallery',
         }),

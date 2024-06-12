@@ -10,6 +10,8 @@ import {videoType} from './videoType'
 import blockContent from './blockContent';
 import post from './post';
 import carousel from './carousel';
+import link from './linkType';
+import richTextType from './richTextType';
 
 export const schemaTypes = [
   pageType,
@@ -22,4 +24,6 @@ export const schemaTypes = [
   post,
   carousel,
   blockContent,
+  link,
+  richTextType,
 ]
