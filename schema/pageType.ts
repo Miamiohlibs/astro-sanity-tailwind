@@ -24,11 +24,11 @@ export const pageType = defineType({
         }),
         defineArrayMember({
             name: 'Rich Text Block',
-            type: 'RichTextComponent',
+            type: 'RichTextType',
         }),
         defineArrayMember({
-            name: 'link',
-            type: 'link',
+            name: 'Link Component',
+            type: 'linkComponent',
         }),
         defineArrayMember({
           name: 'gallery',
