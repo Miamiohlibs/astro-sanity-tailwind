@@ -15,18 +15,6 @@ export const page = defineType({
       options: {
         source: 'title',
       },
-      preview: {
-        select: {
-          title: 'title',
-          image: 'image',
-        },
-        prepare({ title, image }) {
-          return {
-            title,
-            media: image,
-          };
-        },
-      },
     }),
     defineField({
       name: 'sectionsBody',
@@ -40,4 +28,15 @@ export const page = defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image',
+    },
+    prepare({ title }) {
+      return {
+        title,
+      };
+    },
+  },
 });

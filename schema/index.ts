@@ -1,6 +1,7 @@
 // ./schemas/index.ts
 
 // import { promotionType } from './promotionType'
+import { sections } from "./sections/index";
 import { formType } from './formType'
 import { heroType } from './heroType'
 import { imageGalleryType } from './imageGalleryType'
@@ -13,7 +14,7 @@ import { carousel } from './carousel';
 import { linkComponent } from './linkType';
 import { richTextBlock } from './richTextBlock';
 import { page } from './page'
-import { sections } from './sections'
+
 
 export const schemaTypes = [
   // pageType,

@@ -1,3 +1,6 @@
+import { defineSection } from "@tinloof/sanity-studio";
+import { defineField } from 'sanity';
+
 export const bannerSection = defineSection({
   name: "block.banner",
   title: "Banner",

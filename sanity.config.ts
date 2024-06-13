@@ -20,8 +20,8 @@ export default defineConfig({
     linkField(),
     pages({
       previewUrl: {
-        previewMode: {
-          enable: '/api/draft',
+        draftMode: {
+          enable: 'http://localhost:9999/api/draft',
         },
       },
       creatablePages: ['page'],
