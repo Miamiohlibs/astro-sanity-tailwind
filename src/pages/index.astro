@@ -9,7 +9,7 @@ import LibraryHours from '../components/LibraryHours.astro';
 import Localist from '../components/Localist.astro';
 import CrowdIndex from '../components/CrowdIndex.astro';
 
-export const prerender = true;
+export const prerender = false;
 
 const posts = await sanityClient.fetch(
 `*[_type == "post" && defined(date)] | order(date desc)`,
