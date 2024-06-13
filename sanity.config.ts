@@ -5,8 +5,14 @@ import {visionTool} from '@sanity/vision'
 import {linkField} from 'sanity-plugin-link-field'
 import { pages } from '@tinloof/sanity-studio';
 
-
 import { schemaTypes } from './schema';
+
+// We recommend configuring the preview location base URL using
+// environment variables to support multiple environments
+const SANITY_STUDIO_PREVIEW_URL = (
+	process.env.SANITY_STUDIO_PREVIEW_URL
+	|| 'http://localhost:3000'
+)
 
 
 export default defineConfig({
@@ -19,12 +25,12 @@ export default defineConfig({
     visionTool(),
     linkField(),
     pages({
+      creatablePages: ['page'],
       previewUrl: {
-        draftMode: {
-          enable: 'http://localhost:9999/api/draft',
+        previewMode: {
+          enable: '/api/draft',
         },
       },
-      creatablePages: ['page'],
     }),
   ],
   schema: {
