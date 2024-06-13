@@ -29,7 +29,7 @@ export default defineConfig({
   build: {
     assets: ''
   },
-  output: 'server',
+  output: 'hybrid',
   integrations: [sanity({
     projectId: 'h8zbt27a',
     dataset: 'production',
