@@ -13,12 +13,17 @@ export default defineConfig({
   // },
   // Hybrid+adapter is required to support embedded Sanity Studio
   site: 'https://astro-sanity-cv5.pages.dev/',
-  base: '/',
-  build: {
-    assets: '',
-  },
+  // base: '/',
+  // build: {
+  //   assets: '',
+  // },
   output: 'hybrid',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'cloudflare',
+    platformProxy: {
+      enabled: true,
+    },
+  }),
   integrations: [
     sanity({
       projectId: 'h8zbt27a',
