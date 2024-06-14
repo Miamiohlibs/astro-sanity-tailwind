@@ -1,5 +1,3 @@
-// Loading environment variables from .env files
-// https://docs.astro.build/en/guides/configuring-astro/#environment-variables
 import { defineConfig } from "astro/config";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
@@ -13,16 +11,13 @@ export default defineConfig({
   // },
   // Hybrid+adapter is required to support embedded Sanity Studio
   site: 'https://astro-sanity-cv5.pages.dev/',
-  // base: '/',
+  base: '/',
   // build: {
   //   assets: '',
   // },
   output: 'hybrid',
   adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-    },
+    imageService: 'passthrough',
   }),
   integrations: [
     sanity({
