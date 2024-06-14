@@ -5,6 +5,7 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import cloudflare from "@astrojs/cloudflare";
 
+
 // https://astro.build/config
 export default defineConfig({
   // output: 'server',
@@ -17,7 +18,7 @@ export default defineConfig({
   // build: {
   //   assets: '',
   // },
-  output: 'hybrid',
+  output: 'server',
   adapter: cloudflare({
     imageService: 'cloudflare',
     platformProxy: {
