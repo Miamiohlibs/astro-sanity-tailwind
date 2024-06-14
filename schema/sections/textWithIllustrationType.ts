@@ -1,12 +1,19 @@
 // ./schemas/textWithIllustration.js
-
+import { defineSection } from '@tinloof/sanity-studio';
 import {ImageIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
-export const textWithIllustrationType = defineType({
-  name: 'textWithIllustration',
+export default defineSection({
+  name: 'section.textWithIllustration',
   type: 'object',
   title: 'Text with Illustration',
+  options: {
+    variants: [
+      {
+        assetUrl: '/images/logos.png',
+      },
+    ],
+  },
   fields: [
     defineField({
       name: 'heading',
@@ -23,7 +30,7 @@ export const textWithIllustrationType = defineType({
     defineField({
       name: 'image',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       fields: [
         defineField({
           name: 'alt',
@@ -39,12 +46,12 @@ export const textWithIllustrationType = defineType({
       title: 'heading',
       image: 'image',
     },
-    prepare({title, image}) {
+    prepare({ title, image }) {
       return {
         title: title || 'Untitled',
         subtitle: 'Text with Illustration',
         media: image || ImageIcon,
-      }
+      };
     },
   },
-})
+});

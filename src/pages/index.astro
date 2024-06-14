@@ -11,9 +11,11 @@ import CrowdIndex from '../components/CrowdIndex.astro';
 
 export const prerender = false;
 
-const posts = await sanityClient.fetch(
-`*[_type == "post" && defined(date)] | order(date desc)`,
-)
+import {loadQuery} from '../load-query'
+
+const {data: movies} = await loadQuery<Array<{title: string}>>({
+  query: `*[_type == 'post']`,
+})
 
 ---
 <Layout title="Welcome to Miami University Libraries">

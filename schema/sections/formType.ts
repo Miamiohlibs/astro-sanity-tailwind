@@ -7,6 +7,13 @@ export default defineSection({
   name: 'section.form',
   title: 'Form',
   type: 'object',
+  options: {
+    variants: [
+      {
+        assetUrl: '/images/logos.png',
+      },
+    ],
+  },
   fields: [
     defineField({
       name: 'label',
@@ -31,12 +38,14 @@ export default defineSection({
       heading: 'heading',
       form: 'form',
     },
-    prepare({heading, form}) {
+    prepare({ heading, form }) {
       return {
         title: heading || 'Untitled',
-        subtitle: form ? `${form.charAt(0).toUpperCase() + form.slice(1)} form` : 'Form',
+        subtitle: form
+          ? `${form.charAt(0).toUpperCase() + form.slice(1)} form`
+          : 'Form',
         media: EnvelopeIcon,
-      }
+      };
     },
   },
-})
+});

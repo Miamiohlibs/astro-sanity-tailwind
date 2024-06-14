@@ -1,9 +1,17 @@
-import { defineField, defineType } from 'sanity';
+import { defineField } from 'sanity';
+import { defineSection } from '@tinloof/sanity-studio';
 
-export const linkComponent = defineType({
-  name: 'linkComponent',
+export default defineSection({
+  name: 'section.link',
   title: 'Link Component',
   type: 'object',
+  options: {
+    variants: [
+      {
+        assetUrl: '/images/logos.png',
+      },
+    ],
+  },
   fields: [
     defineField({
       name: 'title',
@@ -14,7 +22,6 @@ export const linkComponent = defineType({
       name: 'link',
       title: 'Link',
       type: 'link',
-      validation: (rule) => rule.custom((field) => requiredLinkField(field)),
-    })
+    }),
   ],
 });

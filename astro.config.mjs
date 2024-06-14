@@ -29,6 +29,9 @@ export default defineConfig({
       projectId: 'h8zbt27a',
       dataset: 'production',
       studioBasePath: '/admin',
+      stega: {
+        studioUrl: '/admin',
+      },
       useCdn: true,
       // `false` if you want to ensure fresh data
       apiVersion: '2023-03-20', // Set to date of setup to use the latest API version

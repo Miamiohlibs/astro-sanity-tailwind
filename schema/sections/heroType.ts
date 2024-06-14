@@ -1,12 +1,19 @@
 // ./schemas/heroType.ts
 import { defineSection } from '@tinloof/sanity-studio';
 import {DocumentTextIcon} from '@sanity/icons'
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 
 export default defineSection({
   name: 'section.hero',
   type: 'object',
   title: 'Hero',
+  options: {
+    variants: [
+      {
+        assetUrl: '/images/logos.png',
+      },
+    ],
+  },
   fields: [
     defineField({
       name: 'heading',

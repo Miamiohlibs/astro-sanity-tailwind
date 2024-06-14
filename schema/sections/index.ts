@@ -1,6 +1,5 @@
 // import { defineField, defineType } from 'sanity'
 import header from './header'
-import hero from './hero'
 import logos from './logos'
 import testimonials from './testimonials'
 import form from './formType';
@@ -12,8 +11,7 @@ import linkComponent from './linkType';
 import richTextBlock from './richTextBlock';
 
 export const sections = [
-    header, 
-    hero, 
+    header,
     logos, 
     testimonials, 
     form, 

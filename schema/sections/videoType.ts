@@ -1,11 +1,18 @@
 // ./schemas/videoType.js
-
+import { defineSection } from '@tinloof/sanity-studio';
 import {DocumentVideoIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
-export const videoType = defineType({
-  name: 'video',
+export default defineSection({
+  name: 'section.video',
   type: 'object',
+  options: {
+    variants: [
+      {
+        assetUrl: '/images/logos.png',
+      },
+    ],
+  },
   fields: [
     defineField({
       name: 'videoLabel',
@@ -22,12 +29,12 @@ export const videoType = defineType({
     select: {
       title: 'videoLabel',
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         title: title || 'Untitled',
         subtitle: 'Video',
         media: DocumentVideoIcon,
-      }
+      };
     },
   },
-})
+});
