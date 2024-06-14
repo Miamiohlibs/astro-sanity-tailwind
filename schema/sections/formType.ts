@@ -1,10 +1,11 @@
 // ./schemas/formType.js
-
+import { defineSection } from '@tinloof/sanity-studio';
 import {EnvelopeIcon} from '@sanity/icons'
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 
-export const formType = defineType({
-  name: 'form',
+export default defineSection({
+  name: 'section.form',
+  title: 'Form',
   type: 'object',
   fields: [
     defineField({
