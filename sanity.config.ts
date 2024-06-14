@@ -3,7 +3,6 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import {visionTool} from '@sanity/vision'
 import {linkField} from 'sanity-plugin-link-field'
-import { pages } from '@tinloof/sanity-studio';
 
 import { schemaTypes } from './schema';
 
@@ -24,14 +23,6 @@ export default defineConfig({
     structureTool(),
     visionTool(),
     linkField(),
-    pages({
-      creatablePages: ['page'],
-      previewUrl: {
-        previewMode: {
-          enable: '/api/draft',
-        },
-      },
-    }),
   ],
   schema: {
     types: schemaTypes,
