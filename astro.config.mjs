@@ -16,7 +16,7 @@ export default defineConfig({
    build: {
      assets: 'astro',
    },
-  output: 'hybrid',
+  output: 'static',
   integrations: [
     sanity({
       projectId: 'h8zbt27a',
