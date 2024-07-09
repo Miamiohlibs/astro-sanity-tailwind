@@ -13,16 +13,10 @@ export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   site: 'https://miamiohlibs.github.io',
   base: 'astro-sanity',
-  // build: {
-  //   assets: '',
-  // },
+   build: {
+     assets: 'astro',
+   },
   output: 'hybrid',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-    },
-  }),
   integrations: [
     sanity({
       projectId: 'h8zbt27a',
