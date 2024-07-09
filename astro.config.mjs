@@ -3,7 +3,6 @@
 import { defineConfig } from "astro/config";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,8 +11,8 @@ export default defineConfig({
   //   assets: true
   // },
   // Hybrid+adapter is required to support embedded Sanity Studio
-  site: 'https://astro-sanity-cv5.pages.dev/',
-  // base: '/',
+  site: 'https://miamiohlibs.github.io',
+  base: 'astro-sanity',
   // build: {
   //   assets: '',
   // },
