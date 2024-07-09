@@ -2,17 +2,8 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import {visionTool} from '@sanity/vision'
-import {linkField} from 'sanity-plugin-link-field'
-import { pages } from '@tinloof/sanity-studio';
 
 import { schemaTypes } from './schema';
-
-// We recommend configuring the preview location base URL using
-// environment variables to support multiple environments
-const SANITY_STUDIO_PREVIEW_URL = (
-	process.env.SANITY_STUDIO_PREVIEW_URL
-	|| 'http://localhost:3000'
-)
 
 
 export default defineConfig({
@@ -23,15 +14,6 @@ export default defineConfig({
   plugins: [
     structureTool(),
     visionTool(),
-    linkField(),
-    pages({
-      creatablePages: ['page'],
-      previewUrl: {
-        previewMode: {
-          enable: '/api/draft',
-        },
-      },
-    }),
   ],
   schema: {
     types: schemaTypes,

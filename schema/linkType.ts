@@ -13,8 +13,7 @@ export const linkComponent = defineType({
     defineField({
       name: 'link',
       title: 'Link',
-      type: 'link',
-      validation: (rule) => rule.custom((field) => requiredLinkField(field)),
+      type: 'string',
     })
   ],
 });
