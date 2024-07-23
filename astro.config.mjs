@@ -5,6 +5,8 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   // output: 'server',
@@ -12,19 +14,22 @@ export default defineConfig({
   //   assets: true
   // },
   // Hybrid+adapter is required to support embedded Sanity Studio
-  site: 'https://miamiohlibs.github.io',
-  base: 'astro-sanity',
+  site: "https://miamiohlibs.github.io",
+  base: "astro-sanity",
   build: {
-    assets: 'astro'
+    assets: "astro"
   },
-  output: 'static',
+  output: "static",
   integrations: [sanity({
-    projectId: 'h8zbt27a',
-    dataset: 'production',
-    studioBasePath: '/admin',
+    projectId: "h8zbt27a",
+    dataset: "production",
+    studioBasePath: "/admin",
     useCdn: true,
     // `false` if you want to ensure fresh data
-    apiVersion: '2023-03-20' // Set to date of setup to use the latest API version
-  }), react() // Required for Sanity Studio
-  , tailwind()]
+    apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
+  }), react(),
+  // Required for Sanity Studio
+  tailwind({
+    applyBaseStyles: false
+  }), mdx()]
 });
